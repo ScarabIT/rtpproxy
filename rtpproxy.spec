@@ -4,7 +4,7 @@ Release:	1
 Summary:	A symmetric RTP proxy
 License:        BSD
 URL:		http://www.rtpproxy.org
-Source0: %{name}-%{version}.tar.gz
+Source0:    %{name}-%{version}.tar.gz
 
 BuildRequires:	autoconf
 BuildRequires:	automake

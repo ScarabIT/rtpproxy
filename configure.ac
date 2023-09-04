@@ -5,7 +5,7 @@ AC_PREREQ([2.69])
 AC_INIT([rtpproxy],[2.2.alpha],[sobomax@sippysoft.com])
 AM_MAINTAINER_MODE
 AC_CONFIG_SRCDIR([src/main.c])
-AM_INIT_AUTOMAKE([serial-tests])
+AM_INIT_AUTOMAKE([serial-tests subdir-objects])
 # If the test gets too verbose, comment one line above and uncomment one below
 #AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS([src/config.h])
