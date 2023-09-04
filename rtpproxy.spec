@@ -92,4 +92,6 @@ getent passwd %{name} >/dev/null || \
 %dir %attr(0750, rtpproxy, rtpproxy) %{_localstatedir}/lib/%{name}
 
 
-%changelog
+%changelog* Mon Sep 04 2023 Luis Leal <luisl@scarab.co.za>
+- new package built with tito
+
