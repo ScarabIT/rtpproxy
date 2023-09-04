@@ -4,7 +4,7 @@ Release:	1
 Summary:	A symmetric RTP proxy
 License:        BSD
 URL:		http://www.rtpproxy.org
-VCS:		scm:git:https://github.com/sippy/rtpproxy.git
+Source0: %{name}-%{version}.tar.gz
 
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -33,12 +33,6 @@ rewriting SDP bodies in SIP messages that it processes.
 
 %prep
 %autosetup -p1
-cd hepconnector
-tar xvf %{SOURCE1}  --strip-components 1
-cd ..
-cd libelperiodic
-tar xvf %{SOURCE2}  --strip-components 1
-cd ..
 
 %build
 autoreconf -ivf
