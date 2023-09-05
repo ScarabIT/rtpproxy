@@ -43,12 +43,12 @@ make rtpproxy.8
 
 %install
 %make_install
+find $RPM_BUILD_ROOT -name "*.la" -delete
 install -D -p -m 0644 rpm/%{name}.sysconfig %{buildroot}%{_sysconfdir}/sysconfig/%{name}
 # install systemd files
 install -D -m 0644 -p rpm/%{name}.service %{buildroot}%{_unitdir}/%{name}.service
-install -D -m 0644 -p rpm/%{name}.socket %{buildroot}%{_unitdir}/%{name}.socket
 install -D -m 0644 -p rpm/%{name}.tmpfiles.conf %{buildroot}%{_tmpfilesdir}/%{name}.conf
-mkdir -p %{buildroot}%{_localstatedir}/run/%{name}
+#mkdir -p %{buildroot}%{_localstatedir}/run/%{name}
 install -d %{buildroot}%{_localstatedir}/lib/%{name}
 
 
@@ -70,9 +70,8 @@ getent passwd %{name} >/dev/null || \
 %license LICENSE
 %config(noreplace) %{_sysconfdir}/sysconfig/%{name}
 %{_unitdir}/%{name}.service
-%{_unitdir}/%{name}.socket
 %{_tmpfilesdir}/%{name}.conf
-%dir %attr(0755, rtpproxy, rtpproxy) %{_localstatedir}/run/%{name}
+#%dir %attr(0755, rtpproxy, rtpproxy) %{_localstatedir}/run/%{name}
 %{_bindir}/extractaudio
 %{_bindir}/makeann
 %{_bindir}/rtpproxy
@@ -86,6 +85,7 @@ getent passwd %{name} >/dev/null || \
 %dir %attr(0750, rtpproxy, rtpproxy) %{_localstatedir}/lib/%{name}
 
 
-%changelog* Mon Sep 04 2023 Luis Leal <luisl@scarab.co.za>
+%changelog
+* Mon Sep 04 2023 Luis Leal <luisl@scarab.co.za>
 - new package built with tito
 

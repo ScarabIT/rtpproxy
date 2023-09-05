@@ -41,7 +41,7 @@ solaris*)
   ;;
 esac
 OPT_CFLAGS="`echo "${CFLAGS}" | sed 's|-g |-g3 |'`"
-CFLAGS="-pipe"
+CFLAGS="-pipe -fPIE"
 
 AX_COMPILE_CHECK_SIZEOF(time_t, [#include <time.h>])
 

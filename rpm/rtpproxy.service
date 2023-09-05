@@ -1,15 +1,19 @@
 [Unit]
-Description=A symmetric RTP proxy
+Description=The RTPproxy is a high-performance software proxy for RTP streams
+Documentation=man:rtpproxy
 After=network.target
 
 [Service]
-Type=notify
+Type=forking
 User=rtpproxy
 Group=rtpproxy
+RuntimeDirectory=rtpproxy
+RuntimeDirectoryMode=775
 EnvironmentFile=/etc/sysconfig/rtpproxy
-PIDFile=/var/run/rtpproxy/rtpproxy.pid
-ExecStart=/usr/bin/rtpproxy -f -p /var/run/rtpproxy/rtpproxy.pid $OPTIONS
+PIDFile=%t/rtpproxy/rtpproxy.pid
+ExecStart=/usr/bin/rtpproxy -p %t/rtpproxy/rtpproxy.pid $OPTIONS
+ExecStop=/usr/bin/pkill --pidfile %t/rtpproxy/rtpproxy.pid
+Restart=always
 
 [Install]
-Also=rtpproxy.socket
 WantedBy=multi-user.target
