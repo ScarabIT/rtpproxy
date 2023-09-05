@@ -2,7 +2,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_PREREQ([2.69])
-AC_INIT([rtpproxy],[2.2.alpha],[sobomax@sippysoft.com])
+AC_INIT([rtpproxy],[2.2.1],[sobomax@sippysoft.com])
 AM_MAINTAINER_MODE
 AC_CONFIG_SRCDIR([src/main.c])
 AM_INIT_AUTOMAKE([serial-tests subdir-objects])
@@ -26,12 +26,12 @@ AC_DEFINE_UNQUOTED([VERSION_GIT], ["${mydef_version}"], [Git hash])
 
 case "${host_os}" in
 freebsd*)
-  CPPFLAGS="-I/usr/local/include -pthread"
+  CPPFLAGS="${CPPFLAGS} -I/usr/local/include -pthread"
   LDFLAGS="-L/usr/local/lib"
   #LIBS=
   ;;
 linux*)
-  CPPFLAGS="-D_DEFAULT_SOURCE -D_ISOC99_SOURCE -DLINUX_XXX"
+  CPPFLAGS="${CPPFLAGS} -D_DEFAULT_SOURCE -D_ISOC99_SOURCE -DLINUX_XXX"
   LIBS="-lrt"
   ;;
 solaris*)
