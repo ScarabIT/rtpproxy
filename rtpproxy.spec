@@ -1,6 +1,6 @@
 Name:		rtpproxy
 Version:	2.2.1
-Release:	2
+Release:	4
 Summary:	A symmetric RTP proxy
 License:        BSD
 URL:		http://www.rtpproxy.org
@@ -86,6 +86,13 @@ getent passwd %{name} >/dev/null || \
 
 
 %changelog
+* Mon Feb 19 2024 Luis Leal <luisl@scarab.co.za>
+- RHEL 9 updates (luisl@scarab.co.za)
+
+* Mon Feb 19 2024 Luis Leal <luisl@scarab.co.za>
+- Re-gen (luisl@scarab.co.za)
+- Update submodule (luisl@scarab.co.za)
+
 * Tue Sep 05 2023 Luis Leal <luisl@scarab.co.za> 2.2.1-2
 - Packaging fixes (luisl@scarab.co.za)
 * Mon Sep 04 2023 Luis Leal <luisl@scarab.co.za>
